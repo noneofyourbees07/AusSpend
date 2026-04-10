@@ -1,0 +1,190 @@
+// ============================================================
+// AusSpend — Sector Data
+// Replace `total`, `chart`, and `programs[].amount` values
+// with real numbers from your Flask API (/api/spending).
+// Everything else (labels, descriptions, news) is editorial.
+// ============================================================
+
+export const YEARS = ['2020–21', '2021–22', '2022–23', '2023–24', '2024–25', '2025–26'];
+
+export const SECTORS = {
+  welfare: {
+    label: 'Welfare & Social Services',
+    color: '#58a6ff',
+    total: null,           // e.g. 247.3 (billions AUD)
+    desc: 'Payments and services supporting Australians with income support, family assistance, aged care, disability support, and housing.',
+    overview_agency: 'Services Australia',
+    overview_pct: '34.2%',
+    overview_amount: null,
+    overview_summary: 'The largest single area of federal spending. Covers JobSeeker, Age Pension, NDIS, Family Tax Benefit, and Rent Assistance.',
+    programs: [
+      { name: 'Age Pension',                              agency: 'Services Australia', share: 38, amount: null },
+      { name: 'NDIS — National Disability Insurance Scheme', agency: 'NDIA',           share: 22, amount: null },
+      { name: 'Family Tax Benefit',                       agency: 'Services Australia', share: 14, amount: null },
+      { name: 'JobSeeker Payment',                        agency: 'Services Australia', share: 9,  amount: null },
+      { name: 'Rent Assistance',                          agency: 'Services Australia', share: 5,  amount: null },
+      { name: 'Carer Payment',                            agency: 'Services Australia', share: 5,  amount: null },
+      { name: 'Youth Allowance',                          agency: 'Services Australia', share: 4,  amount: null },
+      { name: 'Other welfare programs',                   agency: 'Various',            share: 3,  amount: null },
+    ],
+    chart: [null, null, null, null],  // [FY21, FY22, FY23, FY24] in $B
+    news: [
+      { headline: 'NDIS cost blowout prompts independent review of eligibility criteria', source: 'ABC News', date: 'Mar 2024', tags: ['NDIS', 'Disability'] },
+      { headline: 'Age pension indexation increase welcomed by seniors groups',           source: 'The Guardian', date: 'Mar 2024', tags: ['Age Pension'] },
+      { headline: 'JobSeeker recipients to face new mutual obligation requirements',      source: 'SMH', date: 'Feb 2024', tags: ['JobSeeker'] },
+    ],
+  },
+  health: {
+    label: 'Health',
+    color: '#3fb950',
+    total: null,
+    desc: 'Medicare, PBS pharmaceuticals, hospital funding, mental health, aged care health services, and public health programs.',
+    overview_agency: 'Dept. of Health & Aged Care',
+    overview_pct: '16.8%',
+    overview_amount: null,
+    overview_summary: 'Covers Medicare Benefits Schedule, Pharmaceutical Benefits Scheme, and federal hospital funding agreements with states.',
+    programs: [
+      { name: 'Medicare Benefits Schedule',    agency: 'Services Australia',       share: 40, amount: null },
+      { name: 'Pharmaceutical Benefits Scheme',agency: 'Dept. Health & Aged Care', share: 18, amount: null },
+      { name: 'Hospital Agreements (states)',  agency: 'Dept. Health & Aged Care', share: 22, amount: null },
+      { name: 'Aged Care Services',            agency: 'Dept. Health & Aged Care', share: 12, amount: null },
+      { name: 'Mental Health Programs',        agency: 'Dept. Health & Aged Care', share: 5,  amount: null },
+      { name: 'Public Health & Prevention',    agency: 'Dept. Health & Aged Care', share: 3,  amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'Medicare levy freeze lifted — bulk billing incentives expanded', source: 'ABC News',     date: 'Apr 2024', tags: ['Medicare'] },
+      { headline: 'PBS drug listings: GLP-1 weight loss medications under review', source: 'The Guardian', date: 'Mar 2024', tags: ['PBS'] },
+    ],
+  },
+  defence: {
+    label: 'Defence & Security',
+    color: '#f85149',
+    total: null,
+    desc: 'ADF capability, AUKUS commitments, Defence industry, intelligence agencies, Border Force, and veteran services.',
+    overview_agency: 'Dept. of Defence',
+    overview_pct: '8.4%',
+    overview_amount: null,
+    overview_summary: 'Includes AUKUS submarine pathway costs, ADF personnel, equipment procurement, and funding for ASIO, ASIS, and ASD.',
+    programs: [
+      { name: 'ADF Personnel & Operations', agency: 'Dept. of Defence',     share: 35, amount: null },
+      { name: 'AUKUS & Submarine Pathway',  agency: 'Dept. of Defence',     share: 20, amount: null },
+      { name: 'Equipment & Capability',     agency: 'Dept. of Defence',     share: 18, amount: null },
+      { name: 'Intelligence Agencies',      agency: 'ASIO / ASIS / ASD',   share: 10, amount: null },
+      { name: 'Border Force & Immigration', agency: 'Home Affairs',         share: 10, amount: null },
+      { name: 'Veteran Services',           agency: 'DVA',                  share: 7,  amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'AUKUS nuclear submarine costs projected to hit $368bn over 40 years', source: 'ABC News', date: 'Mar 2024', tags: ['AUKUS'] },
+      { headline: 'Defence white paper flags increased investment in cyber capabilities', source: 'AFR',      date: 'Feb 2024', tags: ['Cyber'] },
+    ],
+  },
+  education: {
+    label: 'Education',
+    color: '#d29922',
+    total: null,
+    desc: 'Schools funding (Gonski), universities, VET/TAFE, student loans (HECS), early childhood education and care.',
+    overview_agency: 'Dept. of Education',
+    overview_pct: '7.1%',
+    overview_amount: null,
+    overview_summary: 'Federal contribution to schools is needs-based (Gonski model). Universities receive block grants. HECS debt is income-contingent.',
+    programs: [
+      { name: 'School Funding (Gonski)',  agency: 'Dept. of Education',    share: 38, amount: null },
+      { name: 'University Block Grants',  agency: 'Dept. of Education',    share: 28, amount: null },
+      { name: 'Childcare Subsidy',        agency: 'Dept. of Education',    share: 18, amount: null },
+      { name: 'VET / TAFE Funding',       agency: 'Dept. of Employment',   share: 9,  amount: null },
+      { name: 'HECS-HELP Administration', agency: 'ATO / Dept. Education', share: 7,  amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'HECS debt indexation controversy prompts calls for reform', source: 'ABC News',     date: 'Apr 2024', tags: ['HECS'] },
+      { headline: 'Childcare subsidy expansion — out-of-pocket costs still rising', source: 'The Guardian', date: 'Mar 2024', tags: ['Childcare'] },
+    ],
+  },
+  infrastructure: {
+    label: 'Infrastructure & Transport',
+    color: '#bc8cff',
+    total: null,
+    desc: 'Roads, rail, ports, airports, NBN, urban congestion, regional infrastructure, and water projects.',
+    overview_agency: 'Dept. of Infrastructure',
+    overview_pct: '4.9%',
+    overview_amount: null,
+    overview_summary: 'Delivered through Infrastructure Investment Program. Includes federal contributions to state road and rail projects.',
+    programs: [
+      { name: 'Infrastructure Investment Program', agency: 'Dept. Infrastructure', share: 55, amount: null },
+      { name: 'NBN Co equity',                     agency: 'Dept. Infrastructure', share: 18, amount: null },
+      { name: 'Urban Congestion Fund',             agency: 'Dept. Infrastructure', share: 12, amount: null },
+      { name: 'Regional Roads & Transport',        agency: 'Dept. Infrastructure', share: 10, amount: null },
+      { name: 'Airports & Aviation',               agency: 'Dept. Infrastructure', share: 5,  amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'Suburban rail loop federal funding commitment under scrutiny', source: 'AFR', date: 'Mar 2024', tags: ['Rail', 'VIC'] },
+    ],
+  },
+  environment: {
+    label: 'Environment & Energy',
+    color: '#39d353',
+    total: null,
+    desc: 'Clean energy transition, Rewiring the Nation, nature protection, water management, climate adaptation, and emissions reduction.',
+    overview_agency: 'Dept. of Climate Change, Energy, Environment',
+    overview_pct: '2.3%',
+    overview_amount: null,
+    overview_summary: 'Includes Capacity Investment Scheme, hydrogen hubs, Rewiring the Nation grid upgrades, and EPBC-related nature programs.',
+    programs: [
+      { name: 'Rewiring the Nation',        agency: 'Dept. Climate & Energy', share: 35, amount: null },
+      { name: 'Capacity Investment Scheme', agency: 'AEMO / Dept.',           share: 25, amount: null },
+      { name: 'National Parks & Nature',    agency: 'Parks Australia',        share: 15, amount: null },
+      { name: 'Water Infrastructure',       agency: 'MDBA / Dept.',           share: 15, amount: null },
+      { name: 'Hydrogen Hubs',              agency: 'Dept. Climate & Energy', share: 10, amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'Rewiring the Nation — transmission corridor approvals fast-tracked', source: 'The Guardian', date: 'Apr 2024', tags: ['Energy', 'Grid'] },
+    ],
+  },
+  justice: {
+    label: 'Justice & Legal',
+    color: '#ff7b72',
+    total: null,
+    desc: "Federal courts, the AFP, ACIC, legal aid, anti-corruption bodies, the Attorney-General's portfolio.",
+    overview_agency: "Attorney-General's Dept.",
+    overview_pct: '1.4%',
+    overview_amount: null,
+    overview_summary: 'Covers AFP operations, federal court system, NACC, legal aid, and law reform.',
+    programs: [
+      { name: 'Australian Federal Police',      agency: 'AFP',       share: 42, amount: null },
+      { name: 'Federal Courts',                 agency: 'AG Dept.',  share: 22, amount: null },
+      { name: 'NACC — Anti-Corruption',         agency: 'NACC',      share: 8,  amount: null },
+      { name: 'Legal Aid & Access to Justice',  agency: 'AG Dept.',  share: 18, amount: null },
+      { name: 'ACIC & Intelligence',            agency: 'ACIC',      share: 10, amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'NACC receives record referrals in first full year of operation', source: 'ABC News', date: 'Apr 2024', tags: ['NACC', 'Integrity'] },
+    ],
+  },
+  economy: {
+    label: 'Economy & Finance',
+    color: '#ffa657',
+    total: null,
+    desc: 'Treasury, ATO administration, ASIC, APRA, RBA support, trade, export finance, and industry policy.',
+    overview_agency: 'Dept. of Treasury',
+    overview_pct: '3.1%',
+    overview_amount: null,
+    overview_summary: 'Mostly regulatory and administrative. Includes the cost of running the ATO, ASIC enforcement, and trade promotion.',
+    programs: [
+      { name: 'ATO Administration',           agency: 'Australian Tax Office',     share: 38, amount: null },
+      { name: 'ASIC & Financial Regulation',  agency: 'ASIC',                      share: 15, amount: null },
+      { name: 'APRA — Prudential Regulation', agency: 'APRA',                      share: 10, amount: null },
+      { name: 'Trade & Investment Promotion', agency: 'Austrade / DFAT',           share: 20, amount: null },
+      { name: 'Export Finance Australia',     agency: 'EFA',                       share: 12, amount: null },
+      { name: 'Productivity Commission',      agency: 'Productivity Commission',   share: 5,  amount: null },
+    ],
+    chart: [null, null, null, null],
+    news: [
+      { headline: 'Stage 3 tax cuts reshaped — Treasury modelling released', source: 'AFR', date: 'Mar 2024', tags: ['Tax', 'Treasury'] },
+    ],
+  },
+};

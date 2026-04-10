@@ -1,0 +1,87 @@
+.page { display: flex; flex-direction: column; gap: 2rem; }
+.section { display: flex; flex-direction: column; gap: 1rem; }
+.sectionHead { display: flex; flex-direction: column; gap: 0.2rem; }
+.heading { font-size: 1.2rem; font-weight: 700; }
+.sub { font-size: 0.83rem; color: var(--text-muted); }
+
+/* stat row */
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 700px) { .statRow { grid-template-columns: 1fr; } }
+.bigStat {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.bigLabel { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.bigVal { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+.bigNote { font-size: 0.72rem; color: var(--text-dim); }
+
+/* panel */
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.panelTitle { font-size: 0.88rem; font-weight: 600; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); }
+
+/* debt instrument rows */
+.debtRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.debtLeft { display: flex; flex-direction: column; gap: 0.1rem; min-width: 200px; }
+.debtName { font-size: 0.83rem; font-weight: 500; }
+.debtNote { font-size: 0.72rem; color: var(--text-muted); }
+.debtBarWrap { flex: 1; height: 8px; background: var(--bg-panel2); border-radius: 4px; overflow: hidden; }
+.debtBar { height: 100%; background: #f85149; border-radius: 4px; transition: width 0.4s cubic-bezier(0.19,1,0.22,1); }
+.debtAmt { font-size: 0.83rem; font-weight: 600; min-width: 72px; text-align: right; white-space: nowrap; }
+.debtPct { font-size: 0.75rem; color: var(--text-muted); min-width: 36px; text-align: right; }
+
+/* context */
+.contextList {
+  padding: 0 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.contextList li strong { color: var(--text); }
+.sourceNote { font-size: 0.72rem; color: var(--text-dim); border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; }
+.sourceNote a { color: var(--accent); }
+.fetchHint { color: var(--text-dim); }
+.fetchHint code { background: var(--bg-panel2); border: 1px solid var(--border); padding: 0.1rem 0.35rem; border-radius: 3px; font-family: ui-monospace, monospace; font-size: 0.72rem; }
+
+/* two col */
+.twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 800px) { .twoCol { grid-template-columns: 1fr; } }
+
+/* HECS rows */
+.hecsRow { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border-subtle); }
+.hecsRow:last-of-type { border-bottom: none; }
+.hecsLeft { flex: 1; display: flex; flex-direction: column; gap: 0.1rem; }
+.hecsLabel { font-size: 0.83rem; font-weight: 500; }
+.hecsNote { font-size: 0.72rem; color: var(--text-muted); }
+.hecsAmt { font-size: 0.88rem; font-weight: 700; white-space: nowrap; }
+.hecsGap { font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; margin-top: 0.25rem; }
+
+/* Indexation */
+.indexRow { display: flex; align-items: center; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border-subtle); }
+.indexRow:last-of-type { border-bottom: none; }
+.indexYear { font-size: 0.83rem; font-weight: 500; min-width: 90px; }
+.indexRate { font-size: 1rem; font-weight: 700; min-width: 52px; }
+.indexNote { font-size: 0.75rem; color: var(--text-muted); flex: 1; }

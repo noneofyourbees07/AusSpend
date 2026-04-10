@@ -1,0 +1,82 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.empty {
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.intro { display: flex; flex-direction: column; gap: 0.5rem; }
+.heading { font-size: 1.2rem; font-weight: 700; }
+.sub { font-size: 0.85rem; color: var(--text-muted); max-width: 680px; line-height: 1.6; }
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.sectionTitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.9rem 1rem 0.7rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.tableWrap { overflow-x: auto; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.table th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 0.55rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover td { background: var(--bg-panel2); }
+.num { text-align: right !important; }
+.code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+  background: var(--bg-panel2);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+.link { color: var(--accent); font-size: 0.82rem; }
+.link:hover { text-decoration: underline; }
+.dim { color: var(--text-muted); font-size: 0.8rem; }
+
+.steps {
+  padding: 1rem 1rem 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.steps a { color: var(--accent); }
+.caveat {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid var(--border-subtle);
+  line-height: 1.5;
+}
+.caveat strong { color: var(--text); }

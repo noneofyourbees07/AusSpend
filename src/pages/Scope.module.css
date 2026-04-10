@@ -1,0 +1,110 @@
+.page { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.intro { display: flex; flex-direction: column; gap: 0.4rem; }
+.heading { font-size: 1.2rem; font-weight: 700; }
+.sub { font-size: 0.85rem; color: var(--text-muted); max-width: 720px; line-height: 1.5; }
+.sub strong { color: var(--text); }
+
+/* The 3 level cards */
+.levels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 1100px) { .levels { grid-template-columns: 1fr; } }
+
+.levelCard {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.levelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid var(--border);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.levelTitle { font-size: 0.95rem; font-weight: 700; }
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badgeIn { background: rgba(63, 185, 80, 0.15); color: var(--green); }
+.badgeOut { background: rgba(248, 81, 73, 0.15); color: var(--red); }
+
+.levelIntro {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 0.85rem 1rem;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.itemList {
+  list-style: none;
+  padding: 0.4rem 0;
+}
+
+.item {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.item:last-child { border-bottom: none; }
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.itemName { font-size: 0.83rem; font-weight: 500; }
+.itemAmount {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-panel2);
+  border: 1px solid var(--border);
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.itemNote { font-size: 0.72rem; color: var(--text-dim); }
+
+/* Notes */
+.note {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.noteTitle { font-size: 0.9rem; font-weight: 600; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border-subtle); }
+.note p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+.note strong { color: var(--text); }
+
+.bulletList {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.bulletList strong { color: var(--text); }
