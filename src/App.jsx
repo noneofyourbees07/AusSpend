@@ -13,6 +13,7 @@ import Debt          from './pages/Debt';
 import Scope         from './pages/Scope';
 import NoData        from './components/NoData';
 import { SECTORS }   from './data';
+import { fetchSectors, fetchSummary, fetchRevenue } from './dataLoader';
 import styles        from './App.module.css';
 
 export default function App() {
@@ -31,11 +32,10 @@ export default function App() {
 
   useEffect(() => {
     setApiLoading(true);
-    const yearParam = year ? `?year=${year}` : '';
     Promise.all([
-      fetch(`/api/sectors${yearParam}`).then(r => r.json()),
-      fetch('/api/spending/summary').then(r => r.json()),
-      fetch('/api/revenue').then(r => r.json()).catch(() => null),
+      fetchSectors(year),
+      fetchSummary(),
+      fetchRevenue().catch(() => null),
     ])
       .then(([sectors, summary, revenue]) => {
         const totals = {};
@@ -46,7 +46,7 @@ export default function App() {
         setYearSummary(summary);
         setRevenueData(revenue);
       })
-      .catch(err => console.error('API error:', err))
+      .catch(err => console.error('Data load error:', err))
       .finally(() => setApiLoading(false));
   }, [year]);  // re-runs whenever year changes
 

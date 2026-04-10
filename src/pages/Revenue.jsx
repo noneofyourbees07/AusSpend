@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { fetchRevenue } from '../dataLoader';
 import styles from './Revenue.module.css';
 
 function fmtB(val) {
@@ -25,9 +26,7 @@ export default function Revenue({ year }) {
 
   useEffect(() => {
     setLoading(true);
-    const params = year ? `?year=${year}` : '';
-    fetch(`/api/revenue${params}`)
-      .then(r => r.json())
+    fetchRevenue(year)
       .then(setData)
       .catch(() => setData(null))
       .finally(() => setLoading(false));

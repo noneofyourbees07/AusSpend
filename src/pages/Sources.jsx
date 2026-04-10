@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { fetchSources } from '../dataLoader';
 import styles from './Sources.module.css';
 
 export default function Sources() {
@@ -6,8 +7,7 @@ export default function Sources() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/sources')
-      .then(r => r.json())
+    fetchSources()
       .then(setData)
       .catch(() => setData(null))
       .finally(() => setLoading(false));

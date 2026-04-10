@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { fetchDebt, fetchHecs } from '../dataLoader';
 import styles from './Debt.module.css';
 
 function fmtB(val) {
@@ -47,8 +48,8 @@ export default function Debt() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/debt').then(r => r.json()).catch(() => null),
-      fetch('/api/hecs').then(r => r.json()).catch(() => null),
+      fetchDebt().catch(() => null),
+      fetchHecs().catch(() => null),
     ]).then(([debt, hecs]) => {
       setDebtData(debt);
       setHecsData(hecs);

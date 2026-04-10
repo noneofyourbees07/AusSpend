@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { SECTORS } from '../data';
+import { fetchSpending, fetchContracts } from '../dataLoader';
 import NoData from './NoData';
 import styles from './SectorPanel.module.css';
 
@@ -31,11 +32,7 @@ export default function SectorPanel({ activeSector, onSectorChange, search, sect
   // Fetch budget programs
   useEffect(() => {
     setLoading(true);
-    const params = new URLSearchParams({ sector: activeSector, limit: 25 });
-    if (search) params.set('search', search);
-    if (year)   params.set('year', year);
-    fetch(`/api/spending?${params}`)
-      .then(r => r.json())
+    fetchSpending({ sector: activeSector, search, year, limit: 25 })
       .then(data => setPrograms(data.results ?? []))
       .catch(() => setPrograms([]))
       .finally(() => setLoading(false));
@@ -45,12 +42,7 @@ export default function SectorPanel({ activeSector, onSectorChange, search, sect
   useEffect(() => {
     if (view !== 'contracts') return;
     setLoading(true);
-    const params = new URLSearchParams({ sector: activeSector, limit: 50 });
-    if (search) params.set('search', search);
-    if (year)   params.set('year', year);
-    if (state)  params.set('state', state);
-    fetch(`/api/contracts?${params}`)
-      .then(r => r.json())
+    fetchContracts({ sector: activeSector, search, year, state, limit: 50 })
       .then(data => {
         setContracts(data.results ?? []);
         setContractTotal(data.total ?? 0);
@@ -61,11 +53,7 @@ export default function SectorPanel({ activeSector, onSectorChange, search, sect
 
   // Also fetch contract count on mount so the badge shows even before clicking
   useEffect(() => {
-    const params = new URLSearchParams({ sector: activeSector, limit: 1 });
-    if (year)  params.set('year', year);
-    if (state) params.set('state', state);
-    fetch(`/api/contracts?${params}`)
-      .then(r => r.json())
+    fetchContracts({ sector: activeSector, year, state, limit: 1 })
       .then(data => setContractTotal(data.total ?? 0))
       .catch(() => {});
   }, [activeSector, year, state]);
