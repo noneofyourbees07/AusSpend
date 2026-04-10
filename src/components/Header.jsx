@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 
 const NAV = [
@@ -10,10 +11,26 @@ const NAV = [
 ];
 
 export default function Header({ page, onNavigate, year, onYearChange }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close menu when navigating
+  function handleNav(id) {
+    onNavigate(id);
+    setMenuOpen(false);
+  }
+
+  // Close menu on Escape
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = e => { if (e.key === 'Escape') setMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <div className={styles.logo} onClick={() => onNavigate('dashboard')} style={{ cursor: 'pointer' }}>
+        <div className={styles.logo} onClick={() => handleNav('dashboard')}>
           <span className={styles.logoIcon}>$</span>
           <div>
             <span className={styles.logoTitle}>AusSpend</span>
@@ -21,12 +38,13 @@ export default function Header({ page, onNavigate, year, onYearChange }) {
           </div>
         </div>
 
+        {/* Desktop nav */}
         <nav className={styles.nav}>
           {NAV.map(n => (
             <button
               key={n.id}
               className={`${styles.navBtn} ${page === n.id ? styles.navActive : ''}`}
-              onClick={() => onNavigate(n.id)}
+              onClick={() => handleNav(n.id)}
             >
               {n.label}
             </button>
@@ -54,8 +72,38 @@ export default function Header({ page, onNavigate, year, onYearChange }) {
             <option value="2014">2014–15</option>
           </select>
           <span className={styles.badge}>data.gov.au</span>
+
+          {/* Mobile hamburger button */}
+          <button
+            className={styles.hamburger}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span className={`${styles.hamburgerBar} ${menuOpen ? styles.barTop : ''}`}></span>
+            <span className={`${styles.hamburgerBar} ${menuOpen ? styles.barMid : ''}`}></span>
+            <span className={`${styles.hamburgerBar} ${menuOpen ? styles.barBot : ''}`}></span>
+          </button>
         </div>
       </div>
+
+      {/* Mobile drop-down menu */}
+      {menuOpen && (
+        <>
+          <div className={styles.backdrop} onClick={() => setMenuOpen(false)} />
+          <nav className={styles.mobileNav}>
+            {NAV.map(n => (
+              <button
+                key={n.id}
+                className={`${styles.mobileBtn} ${page === n.id ? styles.mobileActive : ''}`}
+                onClick={() => handleNav(n.id)}
+              >
+                {n.label}
+              </button>
+            ))}
+          </nav>
+        </>
+      )}
     </header>
   );
 }
